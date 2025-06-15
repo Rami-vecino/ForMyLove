@@ -1,0 +1,347 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  letter-spacing: .5px;
+}
+body {
+  display: flex;
+  flex-direction: column;
+  font-family: 'Dancing Script', cursive;
+  position: relative;
+  justify-content: center;
+  align-items: center;
+  background-image: linear-gradient(to right,#0009, #0009),url(fondo.png);
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment:fixed;
+  --bg-color: #fff;
+}
+
+    
+.main {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  }
+
+  .cats-image {
+    width: 70%;
+    height: 70%;
+    margin: 40px 0;
+    animation: appear .3s 1 linear both;
+    animation-timeline: view();
+    animation-range: cover 20% cover 30%;
+  }
+
+  h1 {
+    color: var(--bg-color);
+  }
+  
+  .box-1 {
+    position: relative;
+    width: 90%;
+    background-color: var(--bg-color);
+    padding: 10px;
+    border-radius: 5px;
+    border: 2px solid #000;
+    margin-top: 50px;
+    box-shadow: 0 0 15px 0 var(--bg-color);
+  }
+
+  .box-1 p {
+    font-size: 23px;
+  }
+  .month__title {
+    font-size: 20px;
+  }
+  .heart  {
+    position: absolute;
+    top: 0;
+    right: 20px;
+    font-size: 20px;
+    width: 10%;
+    transform: rotate(45deg);
+    padding: 5px;
+    animation: latir 1s infinite linear both;
+  }
+
+
+
+/*-------Section Songs-------*/
+
+
+.song__container {
+    display: flex;
+    flex-direction: column;
+    text-align: center;
+    background-color: var(--bg-color);
+    width: 100%;
+    margin-top: 50px;
+    padding: 7px;
+
+}
+
+.section__title {
+  font-size: 30px;
+  border-bottom: 2px solid #000;
+  animation: appear3 .3s 1 linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 20%;
+}
+
+.song__blocked {
+  display: block;
+  position: absolute;
+  text-align: center;
+  align-content: center;
+  font-size: 25px;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border-radius: 5px;
+  color: #fff;
+  background-color: #000;
+}
+
+.song__box {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-top: 5px;
+  border: 1px solid black;
+  border-radius: 5px;
+  padding: 5px;
+  width: 100%;
+  animation: appear .3s 1 linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 20%;
+}
+
+.song__title {
+  width: 100%;
+}
+.song__image {
+  background-position: center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  width: 50px;
+  height: 50px;
+  border-radius: 5px;
+}
+
+
+/*----- Things Section ------*/
+
+.things__container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  background-color: var(--bg-color);
+  padding: 20px 5px;
+  animation: appear .3s 1 linear both;
+  animation-timeline: view();
+  animation-range: cover 0% cover 20%;
+}
+
+.things {
+  display: grid;
+  grid-template-columns: repeat(5,60px);
+  grid-template-rows: repeat(5,60px);
+  justify-items: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  gap: 7px;
+  position: relative;
+}
+
+.thing__opaco {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  display: none;
+  top: 0;
+  left: 0;
+  background-color: #0005;
+}
+
+.thing__box {
+  position: relative;
+  background-color: var(--bg-color);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 10px;
+  border: 1px solid #000;
+  border-radius: 100%;
+  animation: bubble 2s infinite linear both;
+  transition: 1s;
+  z-index: 10;
+}
+
+
+.thing__title,
+.thing__text{
+  display: none;
+  text-align: center;
+  opacity: 0;
+  width: 100%;
+}
+
+.thing__title{
+  font-size: 50px;
+  margin-top: 15px;
+}
+
+.thing__text {
+  font-size: 25px;
+  margin-top: 15px;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+.sonic {
+  width: 50%;
+  height: 100%;
+  border-radius: 5px;
+}
+
+.thing__box:has(.open__bubble:checked){
+  position: absolute;
+  flex-direction: column;
+  transform: translate(0,50%);
+  z-index: 30;
+  margin: 0;
+}
+
+.open__bubble:checked ~ .bubble__heart{
+  display: none;
+}
+
+.open__bubble:checked ~ .thing__title{
+  display: block;
+  animation: appear2 .5s 1 linear both;
+}
+
+.open__bubble:checked ~ .thing__text{
+  display: block;
+  animation: appear3 .5s 1 linear both;
+}
+
+.bubble__heart {
+  font-size: 20px;
+  animation: latir 1s infinite linear both;
+}
+
+.open__bubble {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  opacity: 0;
+  z-index: 10;
+}
+
+
+
+/*---------- Card Section ---------*/
+
+.card__box {
+  width: 100%;
+  padding: 5px;
+  text-align: center;
+  background-color: var(--bg-color);
+}
+
+.card__box h2 {
+  font-size: 40px;
+  padding: 5px 0;
+}
+.card__content {
+  width: 100%;
+  font-size: 30px;
+  padding: 5px;
+}
+
+
+
+/*-------- Animations Section --------*/
+@keyframes quitar {
+    from {
+      transform: rotate(0deg)translate(0,0);
+    }
+    to {
+      transform: rotate(45deg) translate(400px,-150px);
+      display: none;
+    }
+}
+
+@keyframes appear {
+  from {
+    transform:translate(-50px,-50px);
+    opacity: 0;
+  }
+  to {
+    transform:translate(0,0);
+    opacity: 1;
+  }
+}
+
+@keyframes appear2 {
+  from {
+    transform:translate(0,-50px);
+    opacity: 0;
+  }
+  to {
+    transform:translate(0,0);
+    opacity: 1;
+  }
+}
+@keyframes appear3 {
+  from {
+    transform:translate(0,50px);
+    opacity: 0;
+  }
+  to {
+    transform:translate(0,0);
+    opacity: 1;
+  }
+}
+
+@keyframes latir {
+  0% {
+    scale: 1;
+  }
+  20% {
+    scale: 1.1;
+  }
+  40%{
+    scale: 1;
+  }
+  60% {
+    scale: 1.1;
+  }
+  100% {
+    scale: 1;
+  }
+}
+
+@keyframes bubble {
+  from {
+    transform:translate(0,0);
+  }
+  50% {
+    transform:translate(0,-10px);
+  }
+  to {
+    transform:translate(0,0);
+  }
+}
